@@ -4,21 +4,21 @@ const transactionSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "user", // ini mengacu ke nama model "user" dari userSchema kamu
-      required: true,
+      ref: "user",
+      required: true
     },
     price: {
       type: Number,
-      required: true,
+      required: true
     },
     status: {
       type: String,
       enum: ["pending", "success", "failed"],
-      default: "pending",
-    },
+      default: "pending"
+    }
   },
   {
-    timestamps: true, // harus plural
+    timestamps: true // harus plural
   }
 );
 

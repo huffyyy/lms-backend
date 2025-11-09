@@ -21,7 +21,6 @@ export const signUpAction = async (req, res) => {
       role: "manager"
     });
 
-    // action payment gateway midtrans
     const transaction = new TransactionModel({
       user: user._id,
       price: 290000
@@ -95,7 +94,6 @@ export const signInAction = async (req, res) => {
 
     const token = jwt.sign({ id: existingUser._id.toString() }, process.env.JWT_SECRET_KEY, { expiresIn: "100d" });
 
-    // ✅ Tambahkan tepat di sini
     let photo_url = null;
     if (existingUser.role === "student") {
       photo_url = `${process.env.APP_URL}/uploads/students/${existingUser.photo}`;
